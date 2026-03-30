@@ -21,18 +21,18 @@ const X = "Savior (X)";
 const O = "Dr. DOM (O)";
 
 //Some of your epic battles:
-const BATTLEFIELD =
-    [
-        [O, X, O],
-        [X, X, X],
-        [O, O, X],
+//const BATTLEFIELD =
+//    [
+//        [O, X, O],
+//        [X, X, X],
+//     [O, O, X],
+//   ];
+ const BATTLEFIELD =
+     [
+         [null, X, X],
+        [X, O, null],
+         [O, O, O],
     ];
-// const BATTLEFIELD =
-//     [
-//         [null, X, X],
-//         [X, O, null],
-//         [O, O, O],
-//     ];
 // const BATTLEFIELD =
 //     [
 //         [O, O, X],
@@ -62,9 +62,67 @@ const BATTLEFIELD =
 //         [X, null, O, X, O],
 //     ];
 
-//TODO: Check if the battle is over, and if so, announce the winner!
+//done: Check if the battle is over, and if so, announce the winner!
+
+const n = BATTLEFIELD.length;
+
+function announceWinner(winner, type){
+    console.log(`The Winner is ${winner}! Victory by ${type}.`);
+}
+
 
 // Check Horizontal
+
+for (let r = 0; r < n; r++){
+    let first = BATTLEFIELD[r][0];
+    if (first !== null && BATTLEFIELD[r].every(cell => cell === first)){
+        announceWinner(first, "horizontal row " + (r+1));
+    }
+}
+
+
 // Check Vertical
+
+for (let c = 0; c < n; c++){
+    let first = BATTLEFIELD[0][c];
+    if (first !== null){
+        let win = true;
+        for (let r = 0; r < n; r++){
+            if (BATTLEFIELD[r][c] !== first){
+                win = false;
+                break;
+            }
+        }
+        if (win) announceWinner (first, "vertical column " + (c+1));
+    }
+}
+
+
 // Check Main Diagonal
+
+let firstMain = BATTLEFIELD[0][0];
+if (firstMain !== null){
+    let win = true;
+    for (let i = 0; i < n; i++){
+        if (BATTLEFIELD[i][i] !== firstMain){
+            win = false;
+            break;
+        }
+    }
+    if (win) announceWinner (firstMain, "main diagonal ");
+}
+
+
 // Check Anti Diagonal
+
+let firstAnti = BATTLEFIELD[0][n-1];
+if (firstAnti !== null){
+    let win = true;
+    for (let i= 0; i < n; i++){
+        if (BATTLEFIELD[i][n-1-i] !== firstAnti){
+            win = false;
+            break;
+        }
+    }
+    if (win) announceWinner (firstAnti, "anti diagonal ");
+}
