@@ -19,47 +19,90 @@
  *     The JavaScript way!
  *
  *     Bratlsoft - 2026-03-15
+ *     Tamara Wimhofer - 2025-03-29
  *******************************************************/
 
 /**
- * TODO 1:
+ * done 1:
  * First of all, we need to be able to read the text again,
  * without the risk of catching an eye infection!
  */
 
+let message = document.getElementById("message");
 
+message.style.color = "white";
+message.style.backgroundColor = "darkblue";
+
+let paragraphs = document.getElementsByTagName("p");
+
+for (let p of paragraphs){
+    if (p.textContent.includes ("I have taken all your heroes captive")){
+        p.style.color = "white";
+        p.style.backgroundColor = "darkblue";
+    }
+}
 
 
 /**
- * TODO 2:
+ * done 2:
  * Great job! So much easier on the eyes! Now, let's tackle those minions!
  * Can't we just remove them all together?
  */
 
-
+let lists = document.getElementsByTagName("ul");
+lists[0].remove ();
 
 
 /**
- * TODO 3:
+ * done 3:
  * Wow! You are so powerful! Quick now, set our heroes of the web free!
  * And while at it, let the world know again, that they are back in town!
  */
 
+let heroes = document.getElementById("heroes_of_the_web");
+heroes.style.visibility = "visible";
 
+let paragraph = document.getElementsByTagName("p");
+
+for (let p of paragraphs){
+    if (p.textContent.includes("heroes captive")){
+        p.textContent = "Our heroes are back in town to protect us from the evil!"
+
+        p.style.color = "white";
+        p.style.backgroundColor = "darkblue";
+    }
+}
+
+let messages = document.getElementById("message");
+
+message.textContent = "We care for simplistic design!"
+message.style.color = "white";
+message.style.backgroundColor = "darkblue";
 
 /**
- * TODO 4:
+ * done 4:
  * Our Webpage is safe again! But Dr. Dom is still holding our Headline as a hostage!
  * Do your thing, savior!
  */
 
+let title = document.getElementById("title");
+title.textContent = "We, the mighty Heroes of the web, will protect you!"
 
 
 /**
- * TODO 5:
+ * done 5:
  * You saved the day, again! I knew I could count on you. Our Website is restored,
  * our heroes are freed and there is no sign, Dr. DOM has ever done his evil.
  *
  * It might sound paranoid. But I can't get rid of the feeling, that he is still here,
  * somewhere in the DOM. I can still feel his Code. Can you identify the source and remove it?
  */
+
+let Scripts = document.getElementsByTagName("script");
+
+for (let s of Scripts){
+    if (s.src.includes("dr.dom.js")){
+        s.remove();
+        console.log("Dr. Dom is now completely removes from the web!")
+    }
+}

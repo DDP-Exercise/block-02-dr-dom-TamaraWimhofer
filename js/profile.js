@@ -12,9 +12,24 @@
  *     need one object. Can you help me out?
  *
  *     Bratlsoft - 2026-03-15
+ *     Tamara Wimhofer - 2026-03-29
  *******************************************************/
 
-//TODO: Place one object here.
+//dine: Place one object here.
+const SAVIOR ={
+    name: "Kermit",
+    location: "Ibiza",
+    hobbies: ["Malen nach Zahlen", "Lesen von Literaturbüchern", "DJ spielen"],
+    type_of_companion: "Elf"
+}
+SAVIOR.age = 17;
+SAVIOR.companion = {
+        name: "Edwin",
+        race: "Elf",
+        magicLevel: 9000,
+        weapon: "Invisibility",
+        alignment: "good"
+}
 
 /*******************************************************
  *   DO NOT CHANGE THE CODE BELOW!
